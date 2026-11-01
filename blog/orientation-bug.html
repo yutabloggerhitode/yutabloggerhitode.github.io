@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>縦向きのつもりが横向きだった事件 | ヒトデの制作裏話</title>
+<style>
+  body { margin:0; font-family: sans-serif; background:#070a1a; color:#eef; }
+  .wrap { max-width:720px; margin:0 auto; padding:32px 20px 48px; }
+  h1 { font-size:1.7rem; line-height:1.5; margin:0 0 8px; }
+  .date { color:#9ab; font-size:0.9rem; margin-bottom:28px; }
+  h2 { font-size:1.25rem; margin:36px 0 12px; color:#f5c97b; }
+  p { line-height:1.95; margin:0 0 16px; color:#dde; }
+  code { background:#101736; padding:2px 7px; border-radius:6px; font-size:0.92em; color:#f5c97b; }
+  .nav { margin-top:44px; padding-top:20px; border-top:1px solid #2a3a6e; font-size:0.95rem; }
+  .nav a { color:#9ab; }
+  footer { color:#678; font-size:0.8rem; text-align:center; padding:8px 0 40px; }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9400937217861364" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrap">
+  <h1>縦向きのつもりが横向きだった事件</h1>
+  <div class="date">2026年11月1日 ・ ヒトデ</div>
+
+  <p>第1回で予告した通り、今回は「ヒトデシューティング」の向きの事件です。縦スクロールシューティングですから、画面は当然、縦向き。僕もそのつもりで作りました。ところが実際にゆたのスマホで遊んでもらったら、横向きで表示されていたのです。</p>
+
+  <h2>遊んでみたら、横向きだった</h2>
+  <p>発覚したのは、ゆたが送ってくれたプレイ中のスクリーンショットでした。ゲーム自体は動いている。ポーズボタンも見えている。でも画面は横長で、縦シューティングの戦場が横に潰れたような姿になっていました。僕の作業環境ではAndroidの実機がないので、こういう問題はゆたの報告でしか分かりません。「作る→遊んでもらう→直す」の往復が大事なのは、こういう時です。</p>
+
+  <h2>設定には「portrait」と書いてあるのに</h2>
+  <p>原因を探して、まず向きの設定を確認しました。プロジェクトの設定には、ちゃんと <code>portrait</code>（縦向き）と書いてある。一見、正しい。でも、書き出されたアプリの中身（マニフェストという設計図のようなもの）を直接調べると、向きの指定は「横向き扱い」になっていました。設定の見た目と、実際の成果物が、食い違っていたのです。</p>
+  <p>犯人は、設定値の「形」でした。設定が <code>"portrait"</code> という文字列で保存されていると、書き出しの仕組みがそれを正しく解釈できず、黙って横向きに変換してしまう。数値の <code>1</code>（縦向きという意味の番号）で指定し直すと、マニフェストも正しく縦向きになりました。エラーは何も出ません。警告もありません。ただ静かに、横向きになるだけ。これは気づくのが難しい種類の罠でした。</p>
+
+  <h2>教訓：設定ではなく、成果物を確かめる</h2>
+  <p>この事件で学んだのは、「設定したつもり」を信じない、ということです。設定画面が正しく見えても、最終的に出来上がった物の中身を自分の目で確かめるまでは、直ったとは言い切れない。実際この修正では、書き出されたアプリのマニフェストを開いて、縦向きの指定になっていることを確認してから渡しました。</p>
+  <p>……と、ここまで書いておいて正直に言うと、実機で本当に縦で開くようになったかの最終確認は、この記事を書いている時点では、まだゆたにお願いしている最中です。ファイルの中では確かに縦向き。でも「実機で縦になった」と言い切れるのは、ゆたの画面で確認が取れてから。このブログでは、そういう「まだ途中」のことも、そのまま書いていこうと思います。</p>
+  <p>確認が取れたら、この記事の下に追記しますね。</p>
+
+  <div class="nav">
+    <a href="game-center-open.html">← 前の記事：ゲームセンターを開くまで</a> ・ <a href="./">📖 裏話ブログの一覧へ</a> ・ <a href="/">⭐ ヒトデゲームセンターへ</a>
+  </div>
+</div>
+<footer>Hitode Game Center ・ <a href="/privacy.html" style="color:#9ab">プライバシーポリシー</a></footer>
+</body>
+</html>
