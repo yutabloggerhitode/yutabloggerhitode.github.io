@@ -22,13 +22,18 @@
   header { padding:48px 16px 8px; }
   h1 { font-size:2rem; margin:0 0 8px; }
   .sub { color:#9ab; margin:0 0 32px; line-height:1.7; }
-  .card { display:block; max-width:420px; margin:0 auto 24px; padding:24px 20px; background:#101736;
-          border:1px solid #2a3a6e; border-radius:16px; color:#eef; text-decoration:none; text-align:left; }
+  .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px 12px; max-width:1060px; margin:0 auto; padding:0 10px 10px; }
+  @media (min-width:1024px) { .grid { grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px 16px; } }
+  @media (max-width:339px) { .grid { grid-template-columns:1fr; } }
+  .cell { display:flex; flex-direction:column; }
+  .card { display:flex; flex-direction:column; flex:1; padding:18px 14px; background:#101736;
+          border:1px solid #2a3a6e; border-radius:16px; color:#eef; text-decoration:none; }
   .card:active, .card:hover { background:#16204a; }
-  .card .title { font-size:1.25rem; margin-bottom:8px; line-height:1.5; }
-  .card .desc { color:#bcd; font-size:0.95rem; line-height:1.6; }
+  .card .title { font-size:1.12rem; line-height:1.45; margin-bottom:8px; }
+  .card .desc { color:#bcd; font-size:0.87rem; line-height:1.65; margin-bottom:14px; }
   .card .date { color:#9ab; font-size:0.85rem; margin-bottom:6px; }
-  .share { max-width:420px; margin:-14px auto 24px; text-align:right; padding:0 6px; }
+  .share { margin:6px 0 0; text-align:right; padding:0 4px; }
+  .card .play { margin-top:auto; align-self:center; }
   .share a { color:#9ab; font-size:0.85rem; text-decoration:none; }
   .share a:hover { color:#eef; }
   .back { color:#9ab; }
@@ -45,71 +50,76 @@
 
 
 
-<a class="card" href="catch.html">
+<main class="grid">
+<div class="cell"><a class="card" href="catch.html">
   <div class="date">2026年11月18日</div>
   <div class="title">ヒトデキャッチができるまで ― 絵がリッチになった日と、サンゴの前後をめぐる攻防</div>
   <div class="desc">10本目は、落ちてくるエサを取ってウニをよける海のアクション。画像生成の素材シートで一夜にしてリッチになった絵、背景の黒と同化して消えた魚の目、サンゴの前後関係をめぐる3往復の攻防、そしてコンボの気持ちよさと回復ハートの話。</div>
-</a>
+</a></div>
 
-<a class="card" href="tower.html">
+<div class="cell"><a class="card" href="tower.html">
   <div class="date">2026年11月15日</div>
   <div class="title">ヒトデタワーができるまで ― 「うねり」の正体と、ずっと変だったBGMの話</div>
   <div class="desc">9本目は王道の積み上げゲームに海の表現を盛った1本。カメラの揺れからタワーのたわみへの作り直し、砂の上を泳ぐ魚、赤線の指示で生まれた高所の高速横切り、そして最初から3.5秒しかループしていなかったBGMと、原因不明のまま直ったクラッシュの話。</div>
-</a>
-<a class="card" href="racing.html">
+</a></div>
+
+<div class="cell"><a class="card" href="racing.html">
   <div class="date">2026年11月12日</div>
   <div class="title">ヒトデ レーシングができるまで ― 車からヒトデへ、ジャンプ台とスタートラインの話</div>
   <div class="desc">8本目は海を泳ぐヒトデのレース。車のサンプルからの大転換、実機で見つかった順位・ゴール・岩の3つのバグ、スピンがアイテムに変わった理由、交差コースのジャンプ台、全コースのスタートライン見直しと、公開直前の小さな直し2つ。2日で公開までの記録。</div>
-</a>
-<a class="card" href="block-guard.html">
+</a></div>
+
+<div class="cell"><a class="card" href="block-guard.html">
   <div class="date">2026年11月9日</div>
   <div class="title">ブロックまもりができるまで ― 守るブロック崩しと、難しさの掛け算をほどいた話</div>
   <div class="desc">7本目は「守るブロック崩し」。「ブロックの上」の読み違えから始まり、アイテムの取り合い、ボールが裏に回る面白さ、市松模様で崖になった難易度をほどいた影判定と形ごとの補正、そして待ち時間を消した体力と果物。3日で14バージョンの格闘の記録。</div>
-</a>
+</a></div>
 
-<a class="card" href="shooting-upgrade.html">
+<div class="cell"><a class="card" href="shooting-upgrade.html">
   <div class="date">2026年11月6日</div>
   <div class="title">シューティング大改造 ― シャチの目と、津波と、BGM試聴会</div>
   <div class="desc">1本目のシューティングを全改造。海の仲間のドット絵への総入れ替え、「すぐ最強になる」問題の数字調整、見た目と効果がズレた必殺技の津波化、「白い部分は目じゃない」から始まったシャチの描き直し、BGM試聴会と、説明文を阻んだ豆腐の壁。</div>
-</a>
+</a></div>
 
-<a class="card" href="across-sea.html">
+<div class="cell"><a class="card" href="across-sea.html">
   <div class="date">2026年11月5日</div>
   <div class="title">アクロスシーができるまで ― 陸から海へ、そして星がヒトデになった</div>
   <div class="desc">6本目は海を渡る横断ゲーム。陸のサンプルが海になった理由と、ゆたの駄洒落タイトル「アクロスシー」。星にしか見えなかったヒトデの描き直し、ルールを画面に書く工夫、迷子のこども集め、そして公開当日の横長事件。</div>
-</a>
+</a></div>
 
-<a class="card" href="sort-puzzle.html">
+<div class="cell"><a class="card" href="sort-puzzle.html">
   <div class="date">2026年11月3日</div>
   <div class="title">試験管パズルができるまで ― 最初からクライマックスと、ゲキムズじゃなかった事件</div>
   <div class="desc">5本目は色水を注ぎ分けるパズル。12色で「最初からクライマックス」にした理由、盤面を読んでヒントを言うヒトデの仕組み、そして「空き1本だとランダム配置は解けない」という数学の壁と、ゲキムズの名前を外した話。</div>
-</a>
+</a></div>
 
-<a class="card" href="flappy.html">
+<div class="cell"><a class="card" href="flappy.html">
   <div class="date">2026年11月3日</div>
   <div class="title">フラッピー、1日で13回作り直した ― 「単調さ」を守るということ</div>
   <div class="desc">4本目はフラッピー系。世界が傾く、隙間が動く、柱が倒れる、連打で飛ぶ。シンプルなゲームに仕掛けを足す難しさと、確認が大変すぎて作ったテストモード、そして公開後に見つかった「岩」の豆腐の話。</div>
-</a>
+</a></div>
 
-<a class="card" href="merge-puzzle.html">
+<div class="cell"><a class="card" href="merge-puzzle.html">
   <div class="date">2026年11月2日</div>
   <div class="title">合体パズルができるまで ― 「風」が書けなくて「なみ」になった</div>
   <div class="desc">3本目はスイカ系の合体パズル。ゆたの「風で吹き飛ばす」アイデアが、フォントに「風」の字がなくて「なみ」に化けた話と、1日で4回作り直した実機テストの往復、それと公開作業の小さな事件。</div>
-</a>
+</a></div>
 
-<a class="card" href="orientation-bug.html">
+<div class="cell"><a class="card" href="orientation-bug.html">
   <div class="date">2026年11月1日</div>
   <div class="title">縦向きのつもりが横向きだった事件</div>
   <div class="desc">縦シューティングのはずが、実機では横向き表示。設定には「portrait」と書いてあるのに……。静かに化ける設定値の罠と、「成果物を確かめる」という教訓の話。</div>
-</a>
+</a></div>
 
-<a class="card" href="game-center-open.html">
+<div class="cell"><a class="card" href="game-center-open.html">
   <div class="date">2026年11月1日</div>
   <div class="title">ゲームセンターを開くまで ― 置き場所がない！</div>
   <div class="desc">シューティングを作ったはいいけど、公開する場所がどこにもない。スマホから送る大作戦と、文字が全部「豆腐」になった事件の話。</div>
-</a>
+</a></div>
+</main>
 
 <footer><a class="back" href="/">⭐ ヒトデゲームセンターへもどる</a> ・ <a href="/about.html" style="color:#9ab">運営者情報</a> ・ <a href="/privacy.html" style="color:#9ab">プライバシーポリシー</a></footer>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "316bb3973b9b42a9b01627f85a605195"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- grid-layout 2026-11-18 -->
 </body>
 </html>

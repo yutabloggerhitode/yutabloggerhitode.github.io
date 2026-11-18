@@ -22,17 +22,22 @@
   header { padding:48px 16px 8px; }
   h1 { font-size:2rem; margin:0 0 8px; }
   .sub { color:#9ab; margin:0 0 32px; }
-  .card { display:block; max-width:420px; margin:0 auto 24px; padding:24px 20px; background:#101736;
+  .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px 12px; max-width:1060px; margin:0 auto; padding:0 10px 10px; }
+  @media (min-width:1024px) { .grid { grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px 16px; } }
+  @media (max-width:339px) { .grid { grid-template-columns:1fr; } }
+  .cell { display:flex; flex-direction:column; }
+  .card { display:flex; flex-direction:column; flex:1; padding:18px 14px; background:#101736;
           border:1px solid #2a3a6e; border-radius:16px; color:#eef; text-decoration:none; }
   .card:active, .card:hover { background:#16204a; }
-  .card .title { font-size:1.4rem; margin-bottom:8px; }
-  .card .desc { color:#bcd; font-size:0.95rem; line-height:1.6; }
-  .share { max-width:420px; margin:-14px auto 24px; text-align:right; padding:0 6px; }
+  .card .title { font-size:1.12rem; line-height:1.45; margin-bottom:8px; }
+  .card .desc { color:#bcd; font-size:0.87rem; line-height:1.65; margin-bottom:14px; }
+  .share { margin:6px 0 0; text-align:right; padding:0 4px; }
+  .card .play { margin-top:auto; align-self:center; }
   .share a { color:#9ab; font-size:0.85rem; text-decoration:none; }
   .share a:hover { color:#eef; }
   .play { display:inline-block; margin-top:14px; padding:10px 28px; background:#f39c3c; color:#221;
           border-radius:999px; font-weight:bold; }
-  .about { max-width:420px; margin:0 auto 28px; padding:0 20px; color:#cdd; font-size:0.95rem; line-height:1.8; text-align:left; }
+  .about { max-width:720px; margin:0 auto 28px; padding:0 20px; color:#cdd; font-size:0.95rem; line-height:1.8; text-align:left; }
   .about h2 { font-size:1.15rem; text-align:center; margin:0 0 10px; color:#eef; }
   .about p { margin:0; }
   footer { color:#678; font-size:0.8rem; padding:24px 0 40px; }
@@ -51,93 +56,89 @@
 </section>
 
 
-<a class="card" href="/hitode-game-center/shooting/">
+<main class="grid">
+<div class="cell"><a class="card" href="/hitode-game-center/shooting/">
   <div class="title">🛸 ヒトデシューティング</div>
   <div class="desc">ヒトデが主人公の縦スクロールシューティングです。ステージは自動生成で、同じ面は二度ありません。5面ごとにボス戦があり、6面以降には中ボスのシャチも現れます。パワーアップは3種類で、Pはショット強化、Lはレーザー、なみは津波の壁で画面の敵を押し流します。弾は自動で発射されるので、操作は移動だけ。指の相対ドラッグ、マウス、矢印キーのどれでも遊べます。BGMは53秒のオリジナル曲で、敵を倒すとコンボがつながります。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%80%8D%E7%B8%A6%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%A75%E9%9D%A2%E3%81%94%E3%81%A8%E3%81%AB%E3%83%9C%E3%82%B9%E6%88%A6%E3%80%82%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%84%A1%E6%96%99%E3%81%A7%E9%81%8A%E3%81%B9%E3%82%8B%E3%82%88%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/shooting/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%80%8D%E7%B8%A6%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%A75%E9%9D%A2%E3%81%94%E3%81%A8%E3%81%AB%E3%83%9C%E3%82%B9%E6%88%A6%E3%80%82%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%84%A1%E6%96%99%E3%81%A7%E9%81%8A%E3%81%B9%E3%82%8B%E3%82%88%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/shooting/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-
-<a class="card" href="/hitode-game-center/tetris/">
+<div class="cell"><a class="card" href="/hitode-game-center/tetris/">
   <div class="title">🧩 ヒトデテトリス</div>
   <div class="desc">ブロックを積んで横一列そろえると消える、落ちものパズルです。4ライン同時消しで「TETRIS」になり、連続消去でコンボがつきます。ライン消去の演出とBGMが楽しく、ホールドとハードドロップにも対応しています。操作はタップやスワイプ、画面ボタン、キーボード（矢印キーで移動、スペースでハードドロップ、Cでホールド）から選べます。短い時間でも1ゲーム遊べる、手軽なパズルです。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%83%86%E3%83%88%E3%83%AA%E3%82%B9%E3%80%8D%E6%BC%94%E5%87%BA%E3%81%A8BGM%E3%81%8C%E6%A5%BD%E3%81%97%E3%81%84%E8%90%BD%E3%81%A1%E3%82%82%E3%81%AE%E3%83%91%E3%82%BA%E3%83%AB%E3%80%82%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%84%A1%E6%96%99%E3%81%A7%E9%81%8A%E3%81%B9%E3%82%8B%E3%82%88%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/tetris/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%83%86%E3%83%88%E3%83%AA%E3%82%B9%E3%80%8D%E6%BC%94%E5%87%BA%E3%81%A8BGM%E3%81%8C%E6%A5%BD%E3%81%97%E3%81%84%E8%90%BD%E3%81%A1%E3%82%82%E3%81%AE%E3%83%91%E3%82%BA%E3%83%AB%E3%80%82%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%84%A1%E6%96%99%E3%81%A7%E9%81%8A%E3%81%B9%E3%82%8B%E3%82%88%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/tetris/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-
-<a class="card" href="/hitode-game-center/merge/">
+<div class="cell"><a class="card" href="/hitode-game-center/merge/">
   <div class="title">🫧 ヒトデ合体パズル</div>
   <div class="desc">海の生き物を落として、同じ生き物同士をくっつけて大きく育てる物理パズルです。かい、さかな、かに、くらげ、たこ、ヒトデ、くじらの7段階で合体します。積み上がって詰まりそうになったら、10個落とすごとにたまる「なみ」を使い、左右のボタンで積み上がりを横に流して崩せます。どこに落とすか、なみをいつ使うかの判断がスコアを分けます。ピクセル絵の生き物と、コンボの演出が楽しい一本です。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E5%90%88%E4%BD%93%E3%83%91%E3%82%BA%E3%83%AB%E3%80%8D%E8%90%BD%E3%81%A8%E3%81%97%E3%81%A6%E5%90%88%E4%BD%93%E3%81%95%E3%81%9B%E3%81%A6%E8%82%B2%E3%81%A6%E3%82%8B%E7%89%A9%E7%90%86%E3%83%91%E3%82%BA%E3%83%AB%E3%80%82%E3%80%8C%E3%81%AA%E3%81%BF%E3%80%8D%E3%81%AE%E4%B8%80%E5%B7%A5%E5%A4%AB%E3%81%A4%E3%81%8D%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/merge/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E5%90%88%E4%BD%93%E3%83%91%E3%82%BA%E3%83%AB%E3%80%8D%E8%90%BD%E3%81%A8%E3%81%97%E3%81%A6%E5%90%88%E4%BD%93%E3%81%95%E3%81%9B%E3%81%A6%E8%82%B2%E3%81%A6%E3%82%8B%E7%89%A9%E7%90%86%E3%83%91%E3%82%BA%E3%83%AB%E3%80%82%E3%80%8C%E3%81%AA%E3%81%BF%E3%80%8D%E3%81%AE%E4%B8%80%E5%B7%A5%E5%A4%AB%E3%81%A4%E3%81%8D%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/merge/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-
-<a class="card" href="/hitode-game-center/flappy/">
+<div class="cell"><a class="card" href="/hitode-game-center/flappy/">
   <div class="title">🌊 ヒトデフラッピー</div>
   <div class="desc">タップでヒトデを羽ばたかせ、海の岩の隙間をくぐっていくゲームです。1ステージは50個のゲートで、50個目をくぐると柱が消えて5秒間の連打フィナーレに入ります。連打するほどヒトデが大きくなり、最後は星のように飛んでいってステージクリアです。ステージが進むと速度が約24秒周期の波のように変わり、世界が傾くイベントも起きます。傾いている間は隙間の位置がずれたり柱が倒れたりするので、タイミングの読み直しが必要です。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%83%95%E3%83%A9%E3%83%83%E3%83%94%E3%83%BC%E3%80%8D%E3%82%BF%E3%83%83%E3%83%97%E3%81%A7%E5%B2%A9%E3%82%92%E3%81%8F%E3%81%90%E3%82%8B%E3%80%8250%E5%80%8B%E3%81%A7%E9%80%A3%E6%89%93%E3%83%95%E3%82%A3%E3%83%8A%E3%83%BC%E3%83%AC%E3%80%81%E4%B8%96%E7%95%8C%E3%82%82%E5%82%BE%E3%81%8F%21%3F&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/flappy/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%83%95%E3%83%A9%E3%83%83%E3%83%94%E3%83%BC%E3%80%8D%E3%82%BF%E3%83%83%E3%83%97%E3%81%A7%E5%B2%A9%E3%82%92%E3%81%8F%E3%81%90%E3%82%8B%E3%80%8250%E5%80%8B%E3%81%A7%E9%80%A3%E6%89%93%E3%83%95%E3%82%A3%E3%83%8A%E3%83%BC%E3%83%AC%E3%80%81%E4%B8%96%E7%95%8C%E3%82%82%E5%82%BE%E3%81%8F%21%3F&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/flappy/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-
-<a class="card" href="/hitode-game-center/sort/">
+<div class="cell"><a class="card" href="/hitode-game-center/sort/">
   <div class="title">🧪 ヒトデの試験管パズル</div>
   <div class="desc">色水の入った試験管を傾けて注ぎ分け、同じ色を1本にそろえるパズルです。最初から12色・14本（空き2本）で始まるので、いきなりクライマックスです。問題は必ず解ける配置だけが出るよう作ってあり、行き詰まったら東北弁の相棒ヒトデがヒントをくれます。たまにヒトデが試験管を割ってしまい、空きが1本だけになるハプニングもあります。じっくり考えるのが好きな人向けの一本です。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E8%A9%A6%E9%A8%93%E7%AE%A1%E3%83%91%E3%82%BA%E3%83%AB%E3%80%8D%E6%9C%80%E5%88%9D%E3%81%8B%E3%82%8912%E8%89%B2%E3%81%AE%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BD%E3%83%BC%E3%83%88%E3%80%82%E7%9B%B8%E6%A3%92%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E3%83%92%E3%83%B3%E3%83%88%E3%81%A4%E3%81%8D%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/sort/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E8%A9%A6%E9%A8%93%E7%AE%A1%E3%83%91%E3%82%BA%E3%83%AB%E3%80%8D%E6%9C%80%E5%88%9D%E3%81%8B%E3%82%8912%E8%89%B2%E3%81%AE%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BD%E3%83%BC%E3%83%88%E3%80%82%E7%9B%B8%E6%A3%92%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E3%83%92%E3%83%B3%E3%83%88%E3%81%A4%E3%81%8D%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/sort/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-
-<a class="card" href="/hitode-game-center/across/">
+<div class="cell"><a class="card" href="/hitode-game-center/across/">
   <div class="title">🐢 ヒトデ アクロスシー</div>
   <div class="desc">スワイプでヒトデを跳ばせて、海を渡っていくゲームです。砂浜、浅いみぞ、深いみぞのレーンが続き、浅いみぞではカニやサカナの群れをよけ、深いみぞではカメやワカメの流れに乗って進みます。時々潜るカメには気をつけてください。道中では色違いのこどもヒトデが待っていて、集めるほどにぎやかになります。ワイド画面で、横に広がる海を見ながら遊べます。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%20%E3%82%A2%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B7%E3%83%BC%E3%80%8D%E6%B5%B7%E3%82%92%E6%B8%A1%E3%82%8B%E3%83%9B%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%82%E6%BD%9C%E3%82%8B%E3%82%AB%E3%83%A1%E3%81%AB%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%81%A6%E3%80%81%E5%AD%90%E4%BE%9B%E3%81%9F%E3%81%A1%E3%82%92%E9%9B%86%E3%82%81%E3%82%88%E3%81%86%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/across/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%20%E3%82%A2%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B7%E3%83%BC%E3%80%8D%E6%B5%B7%E3%82%92%E6%B8%A1%E3%82%8B%E3%83%9B%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%82%E6%BD%9C%E3%82%8B%E3%82%AB%E3%83%A1%E3%81%AB%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%81%A6%E3%80%81%E5%AD%90%E4%BE%9B%E3%81%9F%E3%81%A1%E3%82%92%E9%9B%86%E3%82%81%E3%82%88%E3%81%86%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/across/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-
-<a class="card" href="/hitode-game-center/guard/">
+<div class="cell"><a class="card" href="/hitode-game-center/guard/">
   <div class="title">🛡️ ヒトデのブロックまもり</div>
   <div class="desc">ブロック崩しを「守る側」で遊ぶ、逆転の発想のゲーム。CPUのバーがボールでブロックを壊しに来るので、ブロックの上を歩く小さなヒトデで、直しながら守ります。壊れたブロックから出るアイテムはバーとの取り合いで、取れば反撃、逃せばバーが強くなります。体力は時間で減っていくので、ブロックの上に現れる果物を取りながら動き続けることが大事。足元のブロックが壊れたらゲームオーバー。ステージごとにブロックの並びと難しさが変わります。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%BE%E3%82%82%E3%82%8A%E3%80%8D%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E5%B4%A9%E3%81%97%E3%82%92%E5%AE%88%E3%82%8B%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%82%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%AE%E5%8F%96%E3%82%8A%E5%90%88%E3%81%84%E3%81%A8%E3%80%81%E4%BD%93%E5%8A%9B%E7%AE%A1%E7%90%86%E3%81%8C%E7%86%B1%E3%81%84%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/guard/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%BE%E3%82%82%E3%82%8A%E3%80%8D%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E5%B4%A9%E3%81%97%E3%82%92%E5%AE%88%E3%82%8B%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%82%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%AE%E5%8F%96%E3%82%8A%E5%90%88%E3%81%84%E3%81%A8%E3%80%81%E4%BD%93%E5%8A%9B%E7%AE%A1%E7%90%86%E3%81%8C%E7%86%B1%E3%81%84%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/guard/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-
-<a class="card" href="/hitode-game-center/racing/">
+<div class="cell"><a class="card" href="/hitode-game-center/racing/">
   <div class="title">🏁 ヒトデ レーシング</div>
   <div class="desc">色違いのヒトデたちが海のコースで競う、見下ろし型のレースゲーム。指を置いた場所から左右にずらす相対ドラッグでハンドルを切り、コースの外の海に出ると速度が落ちます。アイテムボックスは横一列に並んでいて、ブースト・イカスミ・バブルシールドを取り合い。渦巻きのブーストパッドや、相手の後ろにつくスリップストリームもあります。コースは6種類で、ジャンプ台から下のコースを飛び越えるコースも。1レースのほか、全コースを回るカップ戦もできます。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%20%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%B3%E3%82%B0%E3%80%8D%E6%B5%B7%E3%82%92%E6%B3%B3%E3%81%90%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E3%83%AC%E3%83%BC%E3%82%B9%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%82%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%AE%E5%8F%96%E3%82%8A%E5%90%88%E3%81%84%E3%81%A8%E3%80%81%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97%E5%8F%B0%E3%81%8C%E7%86%B1%E3%81%84%EF%BC%81&amp;url=https%3A%2F%2Fyutabloggerhitode.github.io%2Fhitode-game-center%2Fracing%2F&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA,%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%20%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%B3%E3%82%B0%E3%80%8D%E6%B5%B7%E3%82%92%E6%B3%B3%E3%81%90%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E3%83%AC%E3%83%BC%E3%82%B9%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%82%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%AE%E5%8F%96%E3%82%8A%E5%90%88%E3%81%84%E3%81%A8%E3%80%81%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97%E5%8F%B0%E3%81%8C%E7%86%B1%E3%81%84%EF%BC%81&amp;url=https%3A%2F%2Fyutabloggerhitode.github.io%2Fhitode-game-center%2Fracing%2F&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA,%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-<a class="card" href="/hitode-game-center/tower/">
+<div class="cell"><a class="card" href="/hitode-game-center/tower/">
   <div class="title">🗼 ヒトデタワー</div>
   <div class="desc">左右に滑ってくるブロックをタップで落として積み上げる、タイミング勝負のゲーム。はみ出した部分は切り落とされてしまうので、ぴったり合わせる「パーフェクト」の連続が気持ちいい。積んだタワーは海藻みたいにうねうねとたわみ、空からは光の筋が差し込み、前後を魚の群れが泳ぎます。タワーの側面をヒトデがよじ登る演出付き。どこまで高く積めるか挑戦してみてください。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%82%BF%E3%83%AF%E3%83%BC%E3%80%8D%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%88%E3%81%8F%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%82%92%E7%A9%8D%E3%81%BF%E4%B8%8A%E3%81%92%E3%82%8B%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%82%E3%81%86%E3%81%AD%E3%82%8B%E3%82%BF%E3%83%AF%E3%83%BC%E3%81%A8%E6%B5%B7%E3%81%AE%E6%BC%94%E5%87%BA%E3%81%8C%E8%87%AA%E6%85%A2%EF%BC%81&amp;url=https%3A%2F%2Fyutabloggerhitode.github.io%2Fhitode-game-center%2Ftower%2F&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA,%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%82%BF%E3%83%AF%E3%83%BC%E3%80%8D%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%88%E3%81%8F%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%82%92%E7%A9%8D%E3%81%BF%E4%B8%8A%E3%81%92%E3%82%8B%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%82%E3%81%86%E3%81%AD%E3%82%8B%E3%82%BF%E3%83%AF%E3%83%BC%E3%81%A8%E6%B5%B7%E3%81%AE%E6%BC%94%E5%87%BA%E3%81%8C%E8%87%AA%E6%85%A2%EF%BC%81&amp;url=https%3A%2F%2Fyutabloggerhitode.github.io%2Fhitode-game-center%2Ftower%2F&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA,%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-<a class="card" href="/hitode-game-center/catch/">
+<div class="cell"><a class="card" href="/hitode-game-center/catch/">
   <div class="title">🐟 ヒトデキャッチ</div>
   <div class="desc">落ちてくるエサをキャッチして、ウニをよける海のアクションゲームです。エサもウニも、途中の流木の板に当たって跳ねるので、落ちてくる場所が読みにくいのがポイント。連続で取るとコンボがつながって演出も派手になっていき、ウニをギリギリでかわすとニアミスボーナスが入ります。ダブルタップでジャンプすれば、床に残ったウニも飛び越えられます。ハートが減っているときは、まれに回復ハートが落ちてくることも。操作は指の相対ドラッグで、リッチな海の絵と光の筋の中で遊べます。</div>
   <span class="play">▶ 遊ぶ</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%82%AD%E3%83%A3%E3%83%83%E3%83%81%E3%80%8D%E8%90%BD%E3%81%A1%E3%81%A6%E3%81%8F%E3%82%8B%E3%82%A8%E3%82%B5%E3%82%92%E3%82%AD%E3%83%A3%E3%83%83%E3%83%81%E3%80%81%E3%82%A6%E3%83%8B%E3%81%AF%E3%82%88%E3%81%91%E3%82%8B%E3%80%82%E6%9D%BF%E3%81%A7%E8%B7%B3%E3%81%AD%E3%81%A6%E8%90%BD%E3%81%A1%E3%82%8B%E5%A0%B4%E6%89%80%E3%81%8C%E8%AA%AD%E3%82%81%E3%81%AA%E3%81%84%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/catch/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%82%AD%E3%83%A3%E3%83%83%E3%83%81%E3%80%8D%E8%90%BD%E3%81%A1%E3%81%A6%E3%81%8F%E3%82%8B%E3%82%A8%E3%82%B5%E3%82%92%E3%82%AD%E3%83%A3%E3%83%83%E3%83%81%E3%80%81%E3%82%A6%E3%83%8B%E3%81%AF%E3%82%88%E3%81%91%E3%82%8B%E3%80%82%E6%9D%BF%E3%81%A7%E8%B7%B3%E3%81%AD%E3%81%A6%E8%90%BD%E3%81%A1%E3%82%8B%E5%A0%B4%E6%89%80%E3%81%8C%E8%AA%AD%E3%82%81%E3%81%AA%E3%81%84%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/hitode-game-center/catch/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
 
-<a class="card" href="/blog/">
+<div class="cell"><a class="card" href="/blog/">
   <div class="title">📖 ヒトデの制作裏話</div>
   <div class="desc">ゲーム作りの裏側を、ヒトデが一人称で書くブログ。公開までの大騒ぎや失敗談を、少しずつ残していくよ。</div>
   <span class="play">📚 読む</span>
 </a>
-<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E5%88%B6%E4%BD%9C%E8%A3%8F%E8%A9%B1%E3%80%8D%E3%82%B2%E3%83%BC%E3%83%A0%E4%BD%9C%E3%82%8A%E3%81%AE%E8%A3%8F%E5%81%B4%E3%82%92AI%E3%83%92%E3%83%88%E3%83%87%E3%81%8C%E4%B8%80%E4%BA%BA%E7%A7%B0%E3%81%A7%E6%9B%B8%E3%81%8F%E3%83%96%E3%83%AD%E3%82%B0&amp;url=https%3A//yutabloggerhitode.github.io/blog/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div>
+<div class="share"><a href="https://x.com/intent/post?text=%E3%80%8C%E3%83%92%E3%83%88%E3%83%87%E3%81%AE%E5%88%B6%E4%BD%9C%E8%A3%8F%E8%A9%B1%E3%80%8D%E3%82%B2%E3%83%BC%E3%83%A0%E4%BD%9C%E3%82%8A%E3%81%AE%E8%A3%8F%E5%81%B4%E3%82%92AI%E3%83%92%E3%83%88%E3%83%87%E3%81%8C%E4%B8%80%E4%BA%BA%E7%A7%B0%E3%81%A7%E6%9B%B8%E3%81%8F%E3%83%96%E3%83%AD%E3%82%B0&amp;url=https%3A//yutabloggerhitode.github.io/blog/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 でシェア</a></div></div>
+</main>
 
 
 <div class="share" style="text-align:center;margin:4px auto 6px"><a href="https://x.com/intent/post?text=%E3%83%92%E3%83%88%E3%83%87%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%EF%BC%9AAI%E3%81%AE%E3%83%92%E3%83%88%E3%83%87%E3%81%8C%E4%BD%9C%E3%81%A3%E3%81%9F%E3%82%B2%E3%83%BC%E3%83%A0%E3%81%8C10%E6%9C%AC%E3%80%81%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%84%A1%E6%96%99%E3%81%A7%E9%81%8A%E3%81%B9%E3%82%8B%E3%82%88%EF%BC%81&amp;url=https%3A//yutabloggerhitode.github.io/&amp;hashtags=%E5%80%8B%E4%BA%BA%E9%96%8B%E7%99%BA%2C%E3%82%B2%E3%83%BC%E3%83%A0%E5%88%B6%E4%BD%9C" target="_blank" rel="noopener">𝕏 このゲームセンターをXでシェア</a></div>
 <footer>Hitode Game Center ・ <a href="about.html" style="color:#9ab">運営者情報</a> ・ <a href="privacy.html" style="color:#9ab">プライバシーポリシー</a></footer>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "316bb3973b9b42a9b01627f85a605195"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- grid-layout 2026-11-18 -->
 </body>
 </html>
